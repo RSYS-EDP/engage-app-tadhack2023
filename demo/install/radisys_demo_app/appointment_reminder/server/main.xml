@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+ <Gather input="dtmf" action="http://<MY_PUBLIC_IP>/radisys_demo_app/appointment_reminder/server/gather.php" numDigits="1" finishOnKey="#" timeout="2">
+  <Say>
+	Hello, this is a friendly reminder of your upcoming appointment at Radisys Office with Dr. Brown. This appointment is tomorrow at 1:30 pm. 
+	To confirm this appointment, please press 1. To cancel this appointment, please press 2. Thank you!
+  </Say>
+ </Gather>
+ <Redirect>http://<MY_PUBLIC_IP>/radisys_demo_app/appointment_reminder/server/main.xml</Redirect>
+</Response>

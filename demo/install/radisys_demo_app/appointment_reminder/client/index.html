@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Radisys Demo Application</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
+   <link rel="shortcut icon" href="#" />
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+   <link rel="stylesheet" href="main.css">
+</head>
+ 
+<body>
+
+   <div class="container">
+     <img src="radisys-engage-logo.png" width="200" height="70">
+
+     <div class="header">
+     	<h2>Doctor Appointment Reminder</h2>
+     </div>
+
+     <form id="form" class="form">
+
+        <div class="form-control">
+           <label for="caller">From</label>
+           <input type="type" placeholder="e.g.: 90001 or +18001234567 (must be valid Engage number)" id="caller" />
+           <i class="fas fa-check-circle"></i>
+           <i class="fas fa-exclamation-circle"></i>
+           <small>Error message</small>
+        </div>
+
+	<div class="form-control">
+	   <label for="callee">To</label>
+	   <input type="type" placeholder="e.g.: 12345 (RTC client) or +15031234567 (PSTN)" id="callee" />
+	   <i class="fas fa-check-circle"></i>
+	   <i class="fas fa-exclamation-circle"></i>
+	   <small>Error message</small>
+	</div>
+
+	<button id="submitButton" class="button green">Submit</button>
+
+      </form>
+
+   </div>  
+
+   <div/>
+
+   <div class="outputContainer">
+     <h3>A2P Call Result:</h3>
+     <textarea id="output" name="output" cols="70" rows="60" readonly></textarea>
+   </div>
+
+   <script src="main.js"></script>
+
+</body>
+
+</html>

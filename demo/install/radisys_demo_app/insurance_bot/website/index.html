@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Radisys Insurance Company</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
+  <link rel="shortcut icon" href="#" />
+
+  <!-- This is a fictional website for demo purpose, and the website itself contains nothing but a background image -->
+  <style type="text/css">
+    body {
+        background-image: url('radisys_insurance_website.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+   <!-- The following code adds a click-to-call button on the website to speak with EVA -->
+   <link type="text/css" rel="stylesheet" href="../speak_to_eva/assets/css/phoneOverlay_floatingButton_text.css" media="all">
+   <div class='floatingButton' onclick='toggleiFrame()'><p class="floatingButtonText">Speak With EVA</p></div>
+   <div class='iFrameContainer' id='iFrameContainer'>
+      <iframe id="iframe_callback" width='600' height='900' name="myiFrame" src="about:blank" allow="camera; microphone; autoplay"></iframe>
+   </div>
+
+   <script>
+
+	// Retrieve bot and agent number from the uri-parameter
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	var bot_number = urlParams.get('bot_number');
+	var agent_number = urlParams.get('agent_number');
+	console.log("bot_number = ", bot_number);
+	console.log("agent_number = ", agent_number);
+
+        var url = '../speak_to_eva/index.html?vrbt=insurance&parent=local';
+
+	// These two uri-parameters are mandatory to run this demo app
+	if (bot_number == null || agent_number == null) {
+   		alert("Please provide bot number and agent number in the URL \n\n'bot_number=' is the Engage phone number mapped to insurance bot \n\n'agent_number=' is the RTC client number used for agent-transfer");
+	} else {
+		url = url + "&botid=" + bot_number + "&agent=" + agent_number;
+        }
+	console.log("url = ", url);
+
+    	var iFrameVisibility = false;
+    	var iFrameContainer = document.getElementById('iFrameContainer');
+    	iFrameContainer.classList.remove('stationary');
+    	iFrameContainer.classList.remove('animating');
+    	iFrameContainer.classList.add('init');
+    	var iFrame = document.getElementById('iframe_callback');
+
+ 	window.addEventListener("message", (event) => {
+
+   		if(event.data == 'toggleiFrame'){
+       			toggleiFrame();
+        		return;
+  		}
+
+ 	}, false);
+
+    	function toggleiFrame() {
+
+        	if(iFrameVisibility == true) {
+            		iFrameContainer.classList.remove('init');
+            		iFrameContainer.classList.remove('animating');
+            		iFrameContainer.classList.add('stationary');
+            		iFrameVisibility = false;
+
+            		setTimeout(function() {
+                		if(iFrameVisibility == false) {
+                    		iFrame.src = 'about:blank'}
+            		}, 1000);
+
+        	} else {
+            		iFrameContainer.classList.remove('init');
+            		iFrameContainer.classList.remove('stationary');
+            		iFrameContainer.classList.add('animating');
+            		iFrameVisibility = true;
+            		iFrame.src = url;
+
+        	}
+    	}
+
+   </script>
+
+</body>
+
+</html>
+

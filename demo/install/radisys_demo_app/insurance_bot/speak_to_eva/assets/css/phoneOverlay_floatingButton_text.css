@@ -1,0 +1,112 @@
+
+.floatingButton{
+    margin:0;
+    position:fixed;
+    width:12em;
+    bottom:40%;
+    right:60%;
+    background: linear-gradient(51deg, #334c9d 0, #912bc4 57%, #dd1c4c 100%) border-box;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    box-shadow: 0px 0px 10px 0px #999;
+    z-index:200;
+    background-size: 150% 100%;
+    background-repeat: no-repeat;
+    -webkit-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+        font-family: Montserrat, sans-serif;
+        font-size:1em;
+        font-weight: bold;
+    box-sizing:border-box;
+    }
+    .floatingButtonText {
+        line-height:1.5em;
+        padding:1em;
+        display:block;
+	color:white;
+        margin-block-start:0;
+        margin-block-end:0;
+    }
+    
+
+.floatingButton:hover {
+    cursor:pointer;
+    background-position: 90% 0;
+    box-shadow: 0px 0px 20px 10px #999;
+    -moz-transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+
+    }
+.floatingButton:hover > .floatingButtonText {
+    color: black;
+    }
+
+#iframe_callback {
+    position:relative;
+    object-fit: cover;
+    display:inherit;
+    user-select: none;
+    border:none;
+
+    -ms-zoom: 0.85;
+    -moz-transform: scale(0.85);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.85);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.85);
+    -webkit-transform-origin: 0 0;
+}
+
+.iFrameContainer {
+    position: fixed;
+    border:none;
+    border-radius: 10px;
+    top:100px;
+    width:493px;
+    height:765px;
+    left:50%;
+    overflow:hidden;
+    visibility: hidden;
+    /* background-color: #334c9d; */
+    z-index:200;
+    transition: transform 1s ease-out;
+    
+}
+
+.iFrameContainer.animating{
+    visibility: visible;
+    opacity:1;
+    transform: translate(-50%, 0%);
+    /* box-shadow:  0 0 40px 0 rgba(0, 0, 0, 0.6); */
+}
+
+.iFrameContainer.stationary{
+    visibility: visible;
+    opacity:1;
+    pointer-events: none;
+    transform: translate(-50%, 200%);
+    /* box-shadow:  0 0 40px 0 rgba(0, 0, 0, 0.6); */
+}
+
+.iFrameContainer.init {
+    visibility: hidden;
+    opacity:0;
+
+    transform: translate(-50%, 200%);
+}
+#backgroundDimmer{
+    position:fixed;
+    width:200%;
+    height:200%;
+    transform: translateX(-100px);
+    transform: translateY(-10%);
+    margin: 0 0 0 0;
+    padding:0px;
+    border:0px;
+    background-color: black;
+    z-index:199;
+    pointer-events: none;
+}
+
