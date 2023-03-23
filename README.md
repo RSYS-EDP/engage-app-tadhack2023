@@ -1,4 +1,4 @@
-# engage-app-tadhack2023
+# engage-sample-app
 This repo contains the installation script and 3 x radisys demo apps ([radisys insurance bot](https://github.com/RSYS-EDP/engage-app-tadhack2023/tree/main/demo/install/radisys_demo_app/insurance_bot), [in-call translation](https://github.com/RSYS-EDP/engage-app-tadhack2023/tree/main/demo/install/radisys_demo_app/in_call_translator), [appointment reminder](https://github.com/RSYS-EDP/engage-app-tadhack2023/tree/main/demo/install/radisys_demo_app/appointment_reminder)) for TADHack or any similar event
 
 
